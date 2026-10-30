@@ -2,7 +2,11 @@
 A buildless, dependency-free website. Upload the contents of `dist/` to any static host. No Node runtime, database, or paid API is required in production.
 
 ## Local preview
-Run `python -m http.server 4173 --directory dist` from this directory and visit http://localhost:4173. Copy buttons work on localhost or HTTPS.
+Run `python preview.py` from this directory and visit http://localhost:4173. Stop any previous server on that port with Ctrl+C first. The launcher resolves the site folder relative to itself and disables browser caching. Copy buttons work on localhost or HTTPS.
+
+CSS and JavaScript URLs include content versions so a reload picks up updated assets. If an already-open VS Code browser still shows the earlier design, reload it or reopen `http://localhost:4173/?refresh=20261030`.
+
+The portable copy at `E:\Projects\Codex Projects\convertly-complete-project` stores `index.html` directly at its root; do not use `--directory dist` there. Its `preview.py` supports that layout too.
 
 ## Included tools
 - ISO and Unix dates, calendar input, timezone display, copy all
