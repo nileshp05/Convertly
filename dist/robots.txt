@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://convertly-everyday-tools.livelygrape64.chatgpt.site/sitemap.xml

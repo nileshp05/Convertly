@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Convert ISO 8601 dates and Unix timestamps, with explicit input units and display timezones."><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f6f8fc"><title>Date &amp; time converter — Convertly</title><link rel="canonical" href="https://convertly-everyday-tools.livelygrape64.chatgpt.site/tools/date-time.html"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><script src="../script.js" defer></script></head>
+<body data-tool=""><a class="skip-link" href="#main-content">Skip to content</a><header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Convertly home"><span class="brand-mark" aria-hidden="true">⇄</span> Convertly<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>☰ Menu</button>
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+        <a href="../index.html#tools">All tools</a><a href="../index.html#converter">Date converter</a><a href="../index.html#how-it-works">How it works</a><a href="../index.html#faq">FAQ</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>Dark mode</button>
+    </div>
+  </header>
+<main id="main-content"><noscript><p class="container notice">Enable JavaScript to run this converter. The guide below remains available.</p></noscript><section class="page-hero"><div class="container"><p class="breadcrumb"><a href="../index.html">Home</a> / Date &amp; time converter</p><p class="eyebrow">Convertly toolkit</p><h1>Date &amp; time converter</h1><p>Convert ISO 8601 dates and Unix timestamps, with explicit input units and display timezones.</p></div></section>    <section class="section converter-section" id="converter" aria-labelledby="converter-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">Featured tool</p><h2 id="converter-title">Date &amp; time converter</h2></div><p>A timestamp in. A clear answer out.</p></div>
+        <div class="converter-layout">
+          <form class="panel converter-form" id="date-converter-form">
+            <div class="panel-heading"><h3>Your input</h3><button class="button-text" id="set-now" type="button">Use current time</button></div>
+            <div class="field">
+              <label for="date-input-type">Input format</label>
+              <select id="date-input-type" name="inputType" aria-describedby="input-type-help"><option value="iso">ISO 8601 date &amp; time</option><option value="unix-seconds">Unix timestamp — seconds</option><option value="unix-milliseconds">Unix timestamp — milliseconds</option><option value="calendar">Calendar date &amp; time</option></select>
+              <p class="field-hint" id="input-type-help">Choose the format explicitly to avoid ambiguous dates or timestamp units.</p>
+            </div>
+            <div class="field" id="date-text-field">
+              <label for="date-input">Date or timestamp</label>
+              <input id="date-input" name="dateInput" type="text" placeholder="2026-01-15T12:00:00Z" spellcheck="false" autocomplete="off" required aria-describedby="date-input-help date-input-error">
+              <p class="field-hint" id="date-input-help">For ISO input, include Z for UTC or an offset such as +05:30.</p>
+              <p class="field-error" id="date-input-error" role="alert" hidden></p>
+            </div>
+            <div class="field" id="calendar-input-field" hidden>
+              <label for="calendar-input">Calendar date &amp; time</label>
+              <input id="calendar-input" name="calendarInput" type="datetime-local" step="1" disabled aria-describedby="calendar-help">
+              <p class="field-hint" id="calendar-help">Calendar input uses your device timezone. Use ISO input with an explicit offset for an unambiguous instant.</p>
+            </div>
+            <div class="field"><label for="output-timezone">Display timezone</label>
+              <select id="output-timezone" name="outputTimezone"><option value="UTC">UTC — Coordinated Universal Time</option><option value="local">Your device timezone</option><option value="Asia/Kolkata">Asia/Kolkata</option><option value="America/New_York">America/New_York</option><option value="Europe/London">Europe/London</option><option value="Asia/Tokyo">Asia/Tokyo</option><option value="Australia/Sydney">Australia/Sydney</option></select>
+            </div>
+            <div class="form-actions"><button class="button button-primary" type="submit">Convert date →</button><button class="button button-secondary" type="reset">Reset</button></div>
+            <p class="field-hint">Conversion inputs are processed on this device.</p>
+          </form>
+          <section class="panel results-panel" aria-labelledby="results-title">
+            <div class="panel-heading"><h3 id="results-title">Your results</h3><button class="button-text" id="copy-all" type="button" disabled>Copy all</button></div>
+            <p class="results-summary" id="results-summary" role="status">Enter a date and select Convert date to see your results.</p>
+            <dl class="result-list">
+              <div class="result-row"><dt>ISO 8601 · UTC</dt><dd><output id="result-iso" for="date-input calendar-input">—</output><button type="button" class="copy-button" data-copy-target="result-iso" aria-label="Copy ISO 8601 result" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Unix · seconds</dt><dd><output id="result-seconds" for="date-input calendar-input">—</output><button type="button" class="copy-button" data-copy-target="result-seconds" aria-label="Copy Unix seconds" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Unix · milliseconds</dt><dd><output id="result-milliseconds" for="date-input calendar-input">—</output><button type="button" class="copy-button" data-copy-target="result-milliseconds" aria-label="Copy Unix milliseconds" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Readable date · selected timezone</dt><dd><output id="result-readable" for="date-input calendar-input output-timezone">—</output><button type="button" class="copy-button" data-copy-target="result-readable" aria-label="Copy readable date" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>YYYY-MM-DD · selected timezone</dt><dd><output id="result-date" for="date-input calendar-input output-timezone">—</output><button type="button" class="copy-button" data-copy-target="result-date" aria-label="Copy formatted date" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Time · selected timezone</dt><dd><output id="result-time" for="date-input calendar-input output-timezone">—</output><button type="button" class="copy-button" data-copy-target="result-time" aria-label="Copy formatted time" disabled>Copy</button></dd></div>
+            </dl>
+            <p class="field-hint">Display timezone changes the readable date, not the underlying instant or timestamp.</p>
+            <p id="copy-status" class="copy-status" role="status"></p>
+          </section>
+        </div>
+      </div>
+    </section>
+<section class="section"><article class="container prose"><h2>Dates without guesswork</h2><p>ISO input requires a timezone: use Z for UTC or an offset such as +05:30. Unix input requires you to choose seconds or milliseconds. Calendar input uses your device timezone.</p><p>During a daylight saving fall-back, a local time can occur twice. Use an ISO timestamp with an explicit offset to identify the intended instant. Nonexistent local times during a spring-forward transition are rejected.</p><p>ISO and Unix outputs refer to the same instant. The selected display timezone applies only to the readable date and time. Unix seconds are rounded down when milliseconds are present.</p></article></section></main><footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a class="brand" href="../index.html">⇄ Convertly.</a><p>Small tools. Clear answers.<br>Make everyday conversions simpler.</p></div>
+      <nav aria-label="Converter links"><h2 class="footer-heading">Converters</h2><ul><li><a href="../index.html#converter">Date &amp; time</a></li><li><a href="../tools/units.html">Units</a></li><li><a href="../tools/data-storage.html">Data storage</a></li><li><a href="../tools/number-base.html">Number bases</a></li><li><a href="../tools/text-encoding.html">Text &amp; encoding</a></li></ul></nav>
+      <nav aria-label="Website information"><h2 class="footer-heading">Information</h2><ul><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="../privacy.html">Privacy policy</a></li><li><a href="../terms.html">Terms of use</a></li></ul></nav>
+    </div>
+    <div class="container footer-bottom"><p>© <span id="copyright-year">2026</span> Convertly.</p><a href="../index.html#main-content">Back to top ↑</a></div>
+  </footer></body></html>

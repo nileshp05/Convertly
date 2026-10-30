@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Convert dates, units, data sizes, numbers, and text with straightforward browser-based tools.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f8fc">
+  <title>Convertly — Everyday conversions, made simple</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+  <link rel="canonical" href="https://convertly-everyday-tools.livelygrape64.chatgpt.site/">
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <!-- Advertising is disabled until publisher configuration and consent integration are complete. -->
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html" aria-label="Convertly home"><span class="brand-mark" aria-hidden="true">⇄</span> Convertly<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>☰ Menu</button>
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+        <a href="#tools">All tools</a><a href="#converter">Date converter</a><a href="#how-it-works">How it works</a><a href="#faq">FAQ</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>Dark mode</button>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">Less effort. More clarity.</p>
+        <h1 id="hero-title">Everyday conversions.<br><span class="text-accent">One simple place.</span></h1>
+        <p class="hero-description">From timestamps to temperatures, turn the values you have into the answers you need.</p>
+        <form class="tool-search" id="tool-search" role="search">
+          <label class="sr-only" for="tool-query">Search converters</label>
+          <input id="tool-query" name="q" type="search" placeholder="Try date, temperature, or Base64" autocomplete="off" aria-describedby="search-status">
+          <button type="submit">Find a tool</button>
+        </form>
+        <p id="search-status" role="status"></p>
+        <ul class="hero-benefits"><li>No account needed</li><li>Browser-based conversions</li><li>Made for every screen</li></ul>
+      </div>
+    </section>
+    <noscript><p class="container notice">Enable JavaScript to search and convert. You can still read the guides below.</p></noscript>
+    <section class="section tools-section" id="tools" aria-labelledby="tools-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">Your everyday toolkit</p><h2 id="tools-title">What would you like to convert?</h2></div><p>Choose a tool to get started.</p></div>
+        <div class="tool-grid" id="tool-grid">
+          <a class="tool-card tool-card-featured" href="#converter" data-keywords="date time timestamp unix iso epoch timezone"><span class="tool-icon" aria-hidden="true">◷</span><span class="badge">Start here</span><h3>Date &amp; time</h3><p>Dates, Unix timestamps, and readable formats.</p><span class="card-action">Open converter ↗</span></a>
+          <a class="tool-card" href="./tools/units.html" data-keywords="units length weight temperature volume meters feet kilograms pounds celsius fahrenheit"><span class="tool-icon" aria-hidden="true">↔</span><h3>Unit converter</h3><p>Length, weight, temperature, and volume.</p><span class="card-action">Explore units ↗</span></a>
+          <a class="tool-card" href="./tools/data-storage.html" data-keywords="data storage bits bytes kb mb gb kib mib gib"><span class="tool-icon" aria-hidden="true">▤</span><h3>Data storage</h3><p>Compare decimal and binary file sizes.</p><span class="card-action">Convert sizes ↗</span></a>
+          <a class="tool-card" href="./tools/number-base.html" data-keywords="number base binary decimal hexadecimal octal"><span class="tool-icon" aria-hidden="true">01</span><h3>Number bases</h3><p>Binary, octal, decimal, and hexadecimal.</p><span class="card-action">Convert numbers ↗</span></a>
+          <a class="tool-card" href="./tools/text-encoding.html" data-keywords="text encoding base64 url uppercase lowercase case"><span class="tool-icon" aria-hidden="true">Aa</span><h3>Text &amp; encoding</h3><p>Change text case, encode URLs, and use Base64.</p><span class="card-action">Transform text ↗</span></a>
+        </div>
+        <p id="search-empty" class="empty-state" hidden>No matching tools. Try date, units, or text.</p>
+      </div>
+    </section>
+    <section class="section converter-section" id="converter" aria-labelledby="converter-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">Featured tool</p><h2 id="converter-title">Date &amp; time converter</h2></div><p>A timestamp in. A clear answer out.</p></div>
+        <div class="converter-layout">
+          <form class="panel converter-form" id="date-converter-form">
+            <div class="panel-heading"><h3>Your input</h3><button class="button-text" id="set-now" type="button">Use current time</button></div>
+            <div class="field">
+              <label for="date-input-type">Input format</label>
+              <select id="date-input-type" name="inputType" aria-describedby="input-type-help"><option value="iso">ISO 8601 date &amp; time</option><option value="unix-seconds">Unix timestamp — seconds</option><option value="unix-milliseconds">Unix timestamp — milliseconds</option><option value="calendar">Calendar date &amp; time</option></select>
+              <p class="field-hint" id="input-type-help">Choose the format explicitly to avoid ambiguous dates or timestamp units.</p>
+            </div>
+            <div class="field" id="date-text-field">
+              <label for="date-input">Date or timestamp</label>
+              <input id="date-input" name="dateInput" type="text" placeholder="2026-01-15T12:00:00Z" spellcheck="false" autocomplete="off" required aria-describedby="date-input-help date-input-error">
+              <p class="field-hint" id="date-input-help">For ISO input, include Z for UTC or an offset such as +05:30.</p>
+              <p class="field-error" id="date-input-error" role="alert" hidden></p>
+            </div>
+            <div class="field" id="calendar-input-field" hidden>
+              <label for="calendar-input">Calendar date &amp; time</label>
+              <input id="calendar-input" name="calendarInput" type="datetime-local" step="1" disabled aria-describedby="calendar-help">
+              <p class="field-hint" id="calendar-help">Calendar input uses your device timezone. Use ISO input with an explicit offset for an unambiguous instant.</p>
+            </div>
+            <div class="field"><label for="output-timezone">Display timezone</label>
+              <select id="output-timezone" name="outputTimezone"><option value="UTC">UTC — Coordinated Universal Time</option><option value="local">Your device timezone</option><option value="Asia/Kolkata">Asia/Kolkata</option><option value="America/New_York">America/New_York</option><option value="Europe/London">Europe/London</option><option value="Asia/Tokyo">Asia/Tokyo</option><option value="Australia/Sydney">Australia/Sydney</option></select>
+            </div>
+            <div class="form-actions"><button class="button button-primary" type="submit">Convert date →</button><button class="button button-secondary" type="reset">Reset</button></div>
+            <p class="field-hint">Conversion inputs are processed on this device.</p>
+          </form>
+          <section class="panel results-panel" aria-labelledby="results-title">
+            <div class="panel-heading"><h3 id="results-title">Your results</h3><button class="button-text" id="copy-all" type="button" disabled>Copy all</button></div>
+            <p class="results-summary" id="results-summary" role="status">Enter a date and select Convert date to see your results.</p>
+            <dl class="result-list">
+              <div class="result-row"><dt>ISO 8601 · UTC</dt><dd><output id="result-iso" for="date-input calendar-input">—</output><button type="button" class="copy-button" data-copy-target="result-iso" aria-label="Copy ISO 8601 result" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Unix · seconds</dt><dd><output id="result-seconds" for="date-input calendar-input">—</output><button type="button" class="copy-button" data-copy-target="result-seconds" aria-label="Copy Unix seconds" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Unix · milliseconds</dt><dd><output id="result-milliseconds" for="date-input calendar-input">—</output><button type="button" class="copy-button" data-copy-target="result-milliseconds" aria-label="Copy Unix milliseconds" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Readable date · selected timezone</dt><dd><output id="result-readable" for="date-input calendar-input output-timezone">—</output><button type="button" class="copy-button" data-copy-target="result-readable" aria-label="Copy readable date" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>YYYY-MM-DD · selected timezone</dt><dd><output id="result-date" for="date-input calendar-input output-timezone">—</output><button type="button" class="copy-button" data-copy-target="result-date" aria-label="Copy formatted date" disabled>Copy</button></dd></div>
+              <div class="result-row"><dt>Time · selected timezone</dt><dd><output id="result-time" for="date-input calendar-input output-timezone">—</output><button type="button" class="copy-button" data-copy-target="result-time" aria-label="Copy formatted time" disabled>Copy</button></dd></div>
+            </dl>
+            <p class="field-hint">Display timezone changes the readable date, not the underlying instant or timestamp.</p>
+            <p id="copy-status" class="copy-status" role="status"></p>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!-- Keep inactive ad inventory hidden until approved ad configuration is available. -->
+    <aside class="ad-container container" aria-label="Advertisement" hidden><p class="ad-label">Advertisement</p><div id="ad-slot-main" class="ad-slot"></div></aside>
+    <section class="section guide-section" id="how-it-works" aria-labelledby="guide-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">From input to answer</p><h2 id="guide-title">Three simple steps.</h2></div></div>
+        <ol class="steps-grid">
+          <li><span class="step-number" aria-hidden="true">01</span><h3>Pick your format</h3><p>Choose ISO, Unix seconds, Unix milliseconds, or a calendar date.</p></li>
+          <li><span class="step-number" aria-hidden="true">02</span><h3>Enter your value</h3><p>Paste a value, choose a display timezone, and convert. Use the current-time shortcut for an example.</p></li>
+          <li><span class="step-number" aria-hidden="true">03</span><h3>Copy your answer</h3><p>Copy one result or all formats together for your documentation, spreadsheets, or code.</p></li>
+        </ol>
+        <article class="example-callout" aria-labelledby="example-title"><h3 id="example-title">A quick timestamp example</h3><p><code>2024-01-01T00:00:00Z</code> is midnight on January 1, 2024 in UTC. Its Unix timestamp is <code>1704067200</code> seconds, or <code>1704067200000</code> milliseconds.</p></article>
+      </div>
+    </section>
+    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div><p class="eyebrow">A little more clarity</p><h2 id="faq-title">Good questions.<br>Simple answers.</h2><p>Understand the formats before you copy the result.</p></div>
+        <div class="faq-list">
+          <details><summary>What is a Unix timestamp?</summary><p>A Unix timestamp counts seconds since January 1, 1970 at 00:00:00 UTC, excluding leap seconds. Some systems use milliseconds instead. Select the unit that matches your source.</p></details>
+          <details><summary>Why use ISO 8601 instead of 01/02/2026?</summary><p>Slash-separated dates mean different things in different locales. An ISO date such as <code>2026-02-01</code> makes the year, month, and day explicit. For a precise instant, include time and a timezone offset.</p></details>
+          <details><summary>Does changing the timezone change the timestamp?</summary><p>No. A timestamp identifies an instant. Different timezones display that instant as different local dates and times. Daylight saving rules can affect the offset.</p></details>
+          <details><summary>Are conversion inputs uploaded?</summary><p>Conversions are designed to run in your browser without uploading your input. Hosting requests and any advertising services are separate; see the privacy policy for their details.</p></details>
+          <details><summary>Which conversions are included?</summary><p>The initial toolkit covers dates, measurement units, data storage, number bases, and text encoding. Document and video conversion, and live currency rates, are outside this version's scope.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a class="brand" href="./index.html">⇄ Convertly.</a><p>Small tools. Clear answers.<br>Make everyday conversions simpler.</p></div>
+      <nav aria-label="Converter links"><h2 class="footer-heading">Converters</h2><ul><li><a href="#converter">Date &amp; time</a></li><li><a href="./tools/units.html">Units</a></li><li><a href="./tools/data-storage.html">Data storage</a></li><li><a href="./tools/number-base.html">Number bases</a></li><li><a href="./tools/text-encoding.html">Text &amp; encoding</a></li></ul></nav>
+      <nav aria-label="Website information"><h2 class="footer-heading">Information</h2><ul><li><a href="./about.html">About</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./privacy.html">Privacy policy</a></li><li><a href="./terms.html">Terms of use</a></li></ul></nav>
+    </div>
+    <div class="container footer-bottom"><p>© <span id="copyright-year">2026</span> Convertly.</p><a href="#main-content">Back to top ↑</a></div>
+  </footer>
+</body>
+</html>

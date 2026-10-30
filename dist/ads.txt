@@ -1,0 +1,2 @@
+# No authorized advertising sellers configured.
+# Replace with the exact line supplied by your AdSense account after approval.
